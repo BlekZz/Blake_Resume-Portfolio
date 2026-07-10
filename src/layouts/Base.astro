@@ -118,6 +118,7 @@ const pageSchemaJson = page === "home" ? personSchema : { "@context": "https://s
     <!-- 主題預塗：head 內先套用 data-theme，避免深淺主題切換閃爍 -->
     <script is:inline>
       (function () {
+        document.documentElement.classList.add("js");
         try {
           var stored = localStorage.getItem("theme");
           if (stored === "light" || stored === "dark") {

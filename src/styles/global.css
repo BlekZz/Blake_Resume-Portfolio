@@ -468,19 +468,21 @@ h3,
 
 /* ---------- Scroll reveal ---------- */
 
-.reveal {
+/* 只在 JS 可用（html.js 由 Base.astro inline script 標記）時才隱藏待 reveal 的區塊，
+   無 JS 環境（部分爬蟲、嚴格瀏覽器設定）內容必須直接可見 */
+html.js .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-distance));
   transition: opacity var(--reveal-duration) ease, transform var(--reveal-duration) ease;
 }
 
-.reveal.is-visible {
+html.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  html.js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
