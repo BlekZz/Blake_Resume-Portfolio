@@ -1,0 +1,6 @@
+# Sitemap 建議用絕對網址；此處的網域＋路徑跟 astro.config.mjs 的 `site`／`base` 保持一致，
+# 兩者任一改動時這行都要一併同步更新。
+User-agent: *
+Allow: /
+
+Sitemap: https://blekzz.github.io/Blake_Resume-Portfolio/sitemap-index.xml

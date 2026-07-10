@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+# 觸發：push 到 main（此 repo 只放 personalsite/site 本體，見 README 的拆分說明）
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時只允許一個部署跑，新的 push 會取消尚在排隊的舊部署
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
+        # 官方 Astro Action：自動偵測 package manager、npm ci、astro build，
+        # 並把 dist/ 上傳成 Pages artifact。不需要額外指定 path，預設抓 dist/。
+
+      # 若日後改用 workspace/monorepo 結構（例如把 site/ 留在原 repo 的子目錄），
+      # withastro/action 支援 `path: personalsite/site` 參數，見官方文件。
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

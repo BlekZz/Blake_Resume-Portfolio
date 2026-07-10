@@ -1,0 +1,103 @@
+/*
+ * Design tokens — 移植自舊站 `Personal Site/src/style.css`，擴充深色主題。
+ * 詳見 Sprint_personalsite_aboutme.md §8.3。
+ *
+ * 主題切換規則：
+ * - 預設跟隨系統 `prefers-color-scheme`
+ * - 使用者手動切換時寫入 `<html data-theme="light|dark">` + localStorage，優先權高於系統偏好
+ */
+
+:root {
+  /* Light（預設值，也是未偵測到系統偏好時的 fallback） */
+  --bg: #f3efe7;
+  --bg-elevated: #f8f5ef;
+  --surface: #fffdfa;
+  --surface-muted: #efe8dc;
+  --surface-strong: #17181b;
+  --text: #181a1f;
+  --text-muted: #5c625f;
+  --text-soft: #787f7a;
+  --text-inverse: #f7f3ec;
+  --line: rgba(24, 26, 31, 0.12);
+  --line-strong: rgba(24, 26, 31, 0.22);
+  --accent: #9b6a2c;
+  --accent-soft: #d8c3a4;
+  --shadow-soft: 0 24px 60px rgba(23, 24, 27, 0.08);
+  --shadow-tight: 0 14px 32px rgba(23, 24, 27, 0.09);
+
+  /* 版面比例（不隨主題變動） */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --max-width: 1180px;
+  --gutter: clamp(1.25rem, 2vw, 2rem);
+  --section-space: clamp(4rem, 8vw, 7rem);
+
+  /* 系統字體 stack（不外載字體） */
+  --font-sans: Inter, "Segoe UI", Arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+  /* 動效 */
+  --ease-standard: 180ms ease;
+  --reveal-distance: 18px;
+  --reveal-duration: 560ms;
+}
+
+/* 系統偏好深色：作為預設訊號 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181b;
+    --bg-elevated: #1b1d21;
+    --surface: #1f2126;
+    --surface-muted: #26282e;
+    --surface-strong: #f7f3ec;
+    --text: #f7f3ec;
+    --text-muted: #a8a49b;
+    --text-soft: #8b8880;
+    --text-inverse: #17181b;
+    --line: rgba(247, 243, 236, 0.12);
+    --line-strong: rgba(247, 243, 236, 0.2);
+    --accent: #9b6a2c;
+    --accent-soft: #5a4526;
+    --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.4);
+    --shadow-tight: 0 14px 32px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* 手動覆寫：優先權高於系統偏好，兩個方向都要覆寫 */
+:root[data-theme="light"] {
+  --bg: #f3efe7;
+  --bg-elevated: #f8f5ef;
+  --surface: #fffdfa;
+  --surface-muted: #efe8dc;
+  --surface-strong: #17181b;
+  --text: #181a1f;
+  --text-muted: #5c625f;
+  --text-soft: #787f7a;
+  --text-inverse: #f7f3ec;
+  --line: rgba(24, 26, 31, 0.12);
+  --line-strong: rgba(24, 26, 31, 0.22);
+  --accent: #9b6a2c;
+  --accent-soft: #d8c3a4;
+  --shadow-soft: 0 24px 60px rgba(23, 24, 27, 0.08);
+  --shadow-tight: 0 14px 32px rgba(23, 24, 27, 0.09);
+}
+
+:root[data-theme="dark"] {
+  --bg: #17181b;
+  --bg-elevated: #1b1d21;
+  --surface: #1f2126;
+  --surface-muted: #26282e;
+  --surface-strong: #f7f3ec;
+  --text: #f7f3ec;
+  --text-muted: #a8a49b;
+  --text-soft: #8b8880;
+  --text-inverse: #17181b;
+  --line: rgba(247, 243, 236, 0.12);
+  --line-strong: rgba(247, 243, 236, 0.2);
+  --accent: #9b6a2c;
+  --accent-soft: #5a4526;
+  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.4);
+  --shadow-tight: 0 14px 32px rgba(0, 0, 0, 0.45);
+}

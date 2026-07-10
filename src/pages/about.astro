@@ -1,0 +1,59 @@
+---
+import Base from "../layouts/Base.astro";
+import siteCopy from "../data/site-copy.json";
+import { withBase } from "../lib/base";
+
+const copy = siteCopy.zhTW;
+const about = copy.about;
+---
+
+<Base lang="zh-tw" page="about">
+  <section class="page-hero container reveal">
+    <p class="section-kicker">{about.opener.kicker}</p>
+    <h1 class="hero-heading">{about.opener.heading}</h1>
+    <p class="text-muted">{about.opener.body}</p>
+  </section>
+
+  <section class="section container reveal">
+    <div class="card-grid">
+      <div class="card-panel">
+        <h2 class="section-heading">{about.identity.heading}</h2>
+        <p class="text-muted">Base：{about.identity.base}</p>
+        <p class="text-muted">{about.identity.background}</p>
+        <p class="text-muted">語言：{about.identity.languages}</p>
+      </div>
+      <div class="card-panel">
+        <img src={withBase("/portrait.png")} alt={copy.brand.name} loading="lazy" style="width:100%; height:auto; border-radius: var(--radius-md);" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section container reveal">
+    <h2 class="section-heading">{about.path.heading}</h2>
+    <div class="card-grid">
+      {about.path.items.map((item: { title: string; lesson: string }) => (
+        <div class="card-panel">
+          <h3>{item.title}</h3>
+          <p class="text-muted">{item.lesson}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal">
+    <h2 class="section-heading">{about.principles.heading}</h2>
+    <div class="card-grid">
+      {about.principles.items.map((item: { title: string; body: string }) => (
+        <div class="card-panel">
+          <h3>{item.title}</h3>
+          <p class="text-muted">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal">
+    <h2 class="section-heading">{about.mentoring.heading}</h2>
+    <p class="text-muted">{about.mentoring.body}</p>
+  </section>
+</Base>

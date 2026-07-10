@@ -1,0 +1,66 @@
+---
+// 404 頁：GitHub Pages 會自動把 dist/404.html 當成全站 fallback。
+// 雙語一頁式（不走 Base 的 i18n page prop，因為 404 沒有對應的 zh/en 路徑組），
+// 但沿用同一套 tokens/global.css 維持風格一致。
+import { withBase } from "../lib/base";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <title>404 — 找不到頁面 | Page Not Found</title>
+    <meta
+      name="description"
+      content="這個頁面不存在，回到首頁繼續瀏覽。 This page does not exist — head back to the homepage."
+    />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <link rel="manifest" href={withBase("/site.webmanifest")} />
+    <meta name="theme-color" content="#f3efe7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17181b" media="(prefers-color-scheme: dark)" />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") {
+            document.documentElement.setAttribute("data-theme", stored);
+          }
+        } catch (e) {
+          /* ignore */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <main class="container" style="display:grid; place-items:center; min-height:100vh; text-align:center; gap:1.5rem; padding-top:3rem; padding-bottom:3rem;">
+        <div>
+          <p class="section-kicker">404</p>
+          <h1 class="hero-heading" style="font-size:clamp(2.4rem, 6vw, 4rem);">
+            找不到這個頁面
+          </h1>
+          <p class="text-muted" style="margin-top:1rem;">
+            你要找的頁面不存在，或已經被移動了。
+          </p>
+          <div class="button-row" style="justify-content:center; margin-top:2rem;">
+            <a class="button button-primary" href={withBase("/")}>回首頁</a>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--line); width:100%; max-width:32rem; padding-top:1.5rem;">
+          <h2 class="font-serif" style="font-size:1.4rem;">Page not found</h2>
+          <p class="text-muted" style="margin-top:0.75rem;">
+            The page you're looking for doesn't exist, or it may have moved.
+          </p>
+          <div class="button-row" style="justify-content:center; margin-top:1.5rem;">
+            <a class="button button-secondary" href={withBase("/en/")}>Back to homepage</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

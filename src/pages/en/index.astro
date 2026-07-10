@@ -1,0 +1,103 @@
+---
+import Base from "../../layouts/Base.astro";
+import siteCopy from "../../data/site-copy.json";
+import experiences from "../../data/experiences.json";
+import projects from "../../data/projects.json";
+import { withBase } from "../../lib/base";
+
+const copy = siteCopy.en;
+const exp = experiences.en.home;
+const workCases = projects.en.workCases;
+---
+
+<Base lang="en" page="home">
+  <section class="hero-section container reveal">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="section-kicker">{copy.hero.kicker}</p>
+        <h1 class="hero-heading">{copy.hero.heading}</h1>
+        <p class="hero-subheading">{copy.hero.subheading}</p>
+        <div class="button-row">
+          <a class="button button-primary" href={copy.contact.github} target="_blank" rel="noreferrer">
+            {copy.hero.actions.github}
+          </a>
+          <a class="button button-secondary" href={copy.contact.portfolio} target="_blank" rel="noreferrer">
+            {copy.hero.actions.portfolio}
+          </a>
+          <a class="button button-secondary" href={withBase("/resume-lee-ping-hui.pdf")}>
+            {copy.hero.actions.resume}
+          </a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <img src={withBase("/hero-visual.png")} alt={copy.brand.name} loading="eager" style="width:100%; height:auto; border-radius: var(--radius-md);" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section container reveal">
+    <div class="section-heading-row">
+      <h2 class="section-heading">{copy.metrics.heading}</h2>
+    </div>
+    <div class="metric-grid">
+      {copy.metrics.items.map((item) => (
+        <div class="metric-card">
+          <strong>{item.value}</strong>
+          <p class="text-muted">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal">
+    <div class="section-heading-row">
+      <h2 class="section-heading">{copy.caseHighlights.heading}</h2>
+      <a class="text-link" href={withBase("/en/projects")}>{copy.caseHighlights.cta}</a>
+    </div>
+    <div class="card-list">
+      {workCases.slice(0, 3).map((item) => (
+        <article class="card">
+          <h3>{item.title}</h3>
+          <p class="text-muted">{item.result}</p>
+          <div class="tag-list">
+            {item.tags.map((tag: string) => <span>{tag}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container reveal">
+    <div class="section-heading-row">
+      <h2 class="section-heading">{copy.experienceSummary.heading}</h2>
+    </div>
+    <div class="timeline-list">
+      {exp.map((item) => (
+        <div class="timeline-item">
+          <span class="timeline-marker"></span>
+          <div>
+            <div class="timeline-head">
+              <h3>{item.org}</h3>
+              <p class="text-soft">{item.period}</p>
+            </div>
+            <p class="text-muted">{item.title}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section contact-section container reveal">
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-heading">{copy.contact.heading}</h2>
+        <p class="text-muted">{copy.contact.body}</p>
+      </div>
+      <div class="card-panel">
+        <a class="text-link" href={`mailto:${copy.contact.email}`}>{copy.contact.email}</a>
+        <p class="text-muted"><a href={copy.contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></p>
+        <p class="text-muted"><a href={copy.contact.github} target="_blank" rel="noreferrer">GitHub</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

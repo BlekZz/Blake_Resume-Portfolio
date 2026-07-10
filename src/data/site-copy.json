@@ -1,0 +1,292 @@
+{
+  "zhTW": {
+    "brand": {
+      "monogram": "LPH",
+      "name": "李炳輝",
+      "tagline": "資料治理 × 經營分析"
+    },
+    "nav": {
+      "home": "首頁",
+      "about": "關於我",
+      "projects": "作品",
+      "resume": "履歷"
+    },
+    "meta": {
+      "home": {
+        "title": "李炳輝｜資料治理與經營分析",
+        "description": "把商業問題翻成可執行的數據系統——資料治理、經營分析與團隊培訓的作品與經歷。"
+      },
+      "about": {
+        "title": "關於我｜李炳輝",
+        "description": "AI 時代的分析師是轉譯者與策略師：跨文化背景、職涯路徑與工作原則。"
+      },
+      "projects": {
+        "title": "作品｜李炳輝",
+        "description": "資料治理與經營分析工作案例深讀，以及開源與個人專案。"
+      },
+      "resume": {
+        "title": "履歷｜李炳輝",
+        "description": "完整職涯時間線、技能矩陣，與履歷 PDF 下載。"
+      }
+    },
+    "hero": {
+      "kicker": "資料治理 × 經營分析 × 團隊培訓",
+      "heading": "把商業問題翻成可執行的數據系統",
+      "subheading": "獨力治理集團級資料資產、修正財務歸屬邏輯，並把分析思維教給團隊的商業分析師。",
+      "actions": {
+        "github": "GitHub",
+        "portfolio": "Google Drive Portfolio",
+        "resume": "下載履歷 PDF"
+      }
+    },
+    "metrics": {
+      "heading": "真實成果",
+      "items": [
+        { "value": "380 項", "label": "集團 BI 資產完成治理（Metabase／SQL 版本控制）" },
+        { "value": "44 個・13 天", "label": "dbt models・集團資料平台首版上線" },
+        { "value": "3,148 筆", "label": "合約 BU 歸屬修正（占 24.6%，總額 delta = 0）" },
+        { "value": "7 產業", "label": "分析師培訓 Dashboard 教材（96 圖表・131 題）" }
+      ]
+    },
+    "caseHighlights": {
+      "heading": "精選案例",
+      "cta": "查看全部作品"
+    },
+    "experienceSummary": {
+      "heading": "經歷摘要"
+    },
+    "contact": {
+      "heading": "聯絡",
+      "body": "若你在整理資料治理、經營分析或分析師培訓體系，歡迎直接來信。",
+      "email": "blake.lee@inboundmarketing.tw",
+      "github": "https://github.com/BlekZz",
+      "linkedin": "https://www.linkedin.com/in/blekzz0918/",
+      "portfolio": "https://drive.google.com/drive/folders/1YqTYc1kxGop1ceh7rQ8dUnfdLi2GHDqz"
+    },
+    "about": {
+      "opener": {
+        "kicker": "開場觀點",
+        "heading": "AI 時代的分析師是轉譯者與策略師",
+        "body": "在 AI 工具日趨強大的時代，數據分析的價值已不再是產出報表，而是詮釋與轉譯——我扮演數據與商業決策之間的「轉譯者」與「策略師」。這不是一句空話：從 AI 輔助的招募與培訓流程設計，到跨裝置 AI workflow 治理，我持續把 AI 工具轉化成可重複執行的分析與管理系統。"
+      },
+      "identity": {
+        "heading": "身分",
+        "base": "台北",
+        "background": "馬來西亞背景，長期在台灣工作",
+        "languages": "中文 / 英文 / 粵語 / 馬來語（英語具備國際認證）"
+      },
+      "path": {
+        "heading": "職涯路徑",
+        "items": [
+          {
+            "title": "市場與社群洞察",
+            "lesson": "從外部市場、競品與消費者洞察建立商業判斷的敏感度，學會把雜訊資料整理成可執行的策略建議。"
+          },
+          {
+            "title": "零售與顧問資料整合",
+            "lesson": "在跨系統驗證、經銷商協作與交接壓力中，學會用嚴謹的資料對帳降低企業級專案的風險。"
+          },
+          {
+            "title": "企業資料治理與經營分析",
+            "lesson": "學會一人扛起集團級 BI 資產治理，把財務與制度邏輯拆成可核對的機制，並把分析思維教給團隊。"
+          }
+        ]
+      },
+      "principles": {
+        "heading": "工作原則",
+        "items": [
+          {
+            "title": "先釐清決策場景，才決定輸出形狀",
+            "body": "先看誰要做判斷、多常看一次、目前卡在哪裡，再決定分析要交付什麼形式——而不是先做報表再找人看。"
+          },
+          {
+            "title": "把定義寫進流程，不只是寫進文件",
+            "body": "有效的治理不是一份說明書，而是把商業定義、欄位邏輯與責任分工直接嵌進 pipeline 與監控機制裡，例如 ERP/Metabase 治理中的分層品質檢核。"
+          },
+          {
+            "title": "誠實面對數字的邊界",
+            "body": "我習慣明確標示哪些是已驗證的事實、哪些是推論、哪些仍待確認——寧可承認卡關，也不輸出虛假精確的結論。"
+          }
+        ]
+      },
+      "mentoring": {
+        "heading": "我也帶人",
+        "body": "從 7 產業、96 張圖表、131 道練習題的分析師培訓 Dashboard，到約 6–7 位實習生的招募與 onboarding 流程設計，我持續把複雜的分析邏輯轉成別人能自己學會的教材與制度，而不只是自己會做。"
+      }
+    },
+    "projects": {
+      "workCases": {
+        "heading": "工作案例深讀",
+        "intro": "情境 → 做法 → 可驗證結果，數字全部可回溯至專案資料，嚴守可公開範圍。"
+      },
+      "sideProjects": {
+        "heading": "Open Source & Side Projects",
+        "intro": "個人開發與維護的專案，涵蓋教學工具、環境自動化與互動式培訓教材。"
+      }
+    },
+    "resume": {
+      "heading": "履歷",
+      "intro": "網頁版履歷，內容與投遞用 PDF 同源，排版為網頁閱讀優化。",
+      "downloadLabel": "下載 PDF",
+      "skillsHeading": "技能矩陣",
+      "timelineHeading": "完整時間線",
+      "educationHeading": "學歷與證照"
+    },
+    "footer": {
+      "rights": "© 2026 李炳輝",
+      "linksHeading": "連結",
+      "contactHeading": "聯絡方式"
+    },
+    "themeToggle": {
+      "label": "切換深淺主題"
+    },
+    "langToggle": {
+      "label": "EN"
+    }
+  },
+  "en": {
+    "brand": {
+      "monogram": "LPH",
+      "name": "Lee Ping Hui",
+      "tagline": "Data Governance × Business Analytics"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Work",
+      "resume": "Resume"
+    },
+    "meta": {
+      "home": {
+        "title": "Lee Ping Hui | Data Governance & Business Analytics",
+        "description": "Turning business problems into executable data systems — governance, analytics, and team training work."
+      },
+      "about": {
+        "title": "About | Lee Ping Hui",
+        "description": "An analyst in the AI era is a translator and strategist: cross-cultural background, career path, and working principles."
+      },
+      "projects": {
+        "title": "Work | Lee Ping Hui",
+        "description": "Deep-dive case studies in data governance and business analytics, plus open-source and side projects."
+      },
+      "resume": {
+        "title": "Resume | Lee Ping Hui",
+        "description": "Full career timeline, skill matrix, and resume PDF download."
+      }
+    },
+    "hero": {
+      "kicker": "Data Governance × Business Analytics × Team Enablement",
+      "heading": "Turning business questions into workable data systems",
+      "subheading": "A business analyst who single-handedly governs group-level data assets, fixes financial attribution logic, and teaches teams to think in data.",
+      "actions": {
+        "github": "GitHub",
+        "portfolio": "Google Drive Portfolio",
+        "resume": "Download Resume PDF"
+      }
+    },
+    "metrics": {
+      "heading": "Measured Impact",
+      "items": [
+        { "value": "380 assets", "label": "Group BI assets brought under governance (Metabase / SQL version control)" },
+        { "value": "44 models · 13 days", "label": "dbt models · first production launch of the group data platform" },
+        { "value": "3,148 contracts", "label": "Contract BU attribution fixed (24.6% of total, zero-delta reconciliation)" },
+        { "value": "7 industries", "label": "Analyst training dashboards (96 charts · 131 exercises)" }
+      ]
+    },
+    "caseHighlights": {
+      "heading": "Selected Case Studies",
+      "cta": "View all work"
+    },
+    "experienceSummary": {
+      "heading": "Experience Summary"
+    },
+    "contact": {
+      "heading": "Contact",
+      "body": "If you are working on data governance, business analytics, or analyst training systems, feel free to reach out.",
+      "email": "blake.lee@inboundmarketing.tw",
+      "github": "https://github.com/BlekZz",
+      "linkedin": "https://www.linkedin.com/in/blekzz0918/",
+      "portfolio": "https://drive.google.com/drive/folders/1YqTYc1kxGop1ceh7rQ8dUnfdLi2GHDqz"
+    },
+    "about": {
+      "opener": {
+        "kicker": "Opening Perspective",
+        "heading": "An analyst in the AI era is a translator and strategist",
+        "body": "As AI tools grow more capable, the value of data analysis is no longer producing reports — it is interpretation and translation. I act as a translator and strategist between data and business decisions. This is not just a slogan: from designing AI-assisted recruiting and training workflows to governing cross-device AI tooling, I keep turning AI capability into repeatable analysis and management systems."
+      },
+      "identity": {
+        "heading": "Identity",
+        "base": "Taipei",
+        "background": "Malaysian background, long-term based in Taiwan",
+        "languages": "Mandarin / English / Cantonese / Malay (English internationally certified)"
+      },
+      "path": {
+        "heading": "Career Path",
+        "items": [
+          {
+            "title": "Market & community insight",
+            "lesson": "Built business judgment from external market, competitor, and consumer signals, learning to turn noisy data into actionable strategy."
+          },
+          {
+            "title": "Retail & consulting data integration",
+            "lesson": "Learned to use rigorous reconciliation to de-risk enterprise projects under cross-system validation, distributor coordination, and handover pressure."
+          },
+          {
+            "title": "Enterprise data governance & analytics",
+            "lesson": "Learned to single-handedly own group-level BI asset governance, break financial and policy logic into auditable mechanisms, and teach the underlying analytical thinking to a team."
+          }
+        ]
+      },
+      "principles": {
+        "heading": "Working Principles",
+        "items": [
+          {
+            "title": "Clarify the decision context before shaping the output",
+            "body": "I first identify who is making the call, how often they need the signal, and where the current friction sits — instead of building a report first and looking for an audience after."
+          },
+          {
+            "title": "Write definitions into the workflow, not just the docs",
+            "body": "Effective governance is not a manual — it embeds business definitions, field logic, and ownership directly into the pipeline and monitoring layer, such as the layered quality gates in ERP/Metabase governance."
+          },
+          {
+            "title": "Be honest about the limits of a number",
+            "body": "I explicitly label what is a verified fact, what is inference, and what is still unconfirmed — I would rather disclose a blocker than output a falsely precise conclusion."
+          }
+        ]
+      },
+      "mentoring": {
+        "heading": "I also build people",
+        "body": "From a 7-industry, 96-chart, 131-exercise analytics training dashboard to designing recruiting and onboarding workflows for about 6-7 interns, I keep turning complex analytical logic into materials and systems other people can learn on their own — not just things only I can do."
+      }
+    },
+    "projects": {
+      "workCases": {
+        "heading": "Work Case Studies",
+        "intro": "Situation -> approach -> verifiable result. Every number traces back to project records and stays within publicly shareable scope."
+      },
+      "sideProjects": {
+        "heading": "Open Source & Side Projects",
+        "intro": "Personally built and maintained projects spanning teaching tools, environment automation, and interactive training material."
+      }
+    },
+    "resume": {
+      "heading": "Resume",
+      "intro": "A web-native resume sourced from the same data as the submission PDF, laid out for on-screen reading.",
+      "downloadLabel": "Download PDF",
+      "skillsHeading": "Skill Matrix",
+      "timelineHeading": "Full Timeline",
+      "educationHeading": "Education & Certifications"
+    },
+    "footer": {
+      "rights": "© 2026 Lee Ping Hui",
+      "linksHeading": "Links",
+      "contactHeading": "Contact"
+    },
+    "themeToggle": {
+      "label": "Toggle light/dark theme"
+    },
+    "langToggle": {
+      "label": "中文"
+    }
+  }
+}

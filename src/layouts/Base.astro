@@ -1,0 +1,263 @@
+---
+// Base layout：header / nav / footer / language + theme toggle / SEO meta slots
+// 依 Sprint_personalsite_aboutme.md §8.1、§8.3。
+import siteCopy from "../data/site-copy.json";
+import { withBase } from "../lib/base";
+import "../styles/global.css";
+
+export interface Props {
+  lang: "zh-tw" | "en";
+  page: "home" | "about" | "projects" | "resume";
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { lang, page, title, description, ogImage = "/og-preview.png" } = Astro.props;
+
+const localeKey = lang === "en" ? "en" : "zhTW";
+const otherLocaleKey = localeKey === "en" ? "zhTW" : "en";
+const copy = siteCopy[localeKey];
+const otherCopy = siteCopy[otherLocaleKey];
+
+const pageMeta = copy.meta[page];
+const resolvedTitle = title ?? pageMeta.title;
+const resolvedDescription = description ?? pageMeta.description;
+
+// zh-tw 為 defaultLocale，prefixDefaultLocale:false，所以根路徑無前綴；en 掛在 /en/ 之下。
+const pathByPage: Record<string, { "zh-tw": string; en: string }> = {
+  home: { "zh-tw": "/", en: "/en/" },
+  about: { "zh-tw": "/about", en: "/en/about" },
+  projects: { "zh-tw": "/projects", en: "/en/projects" },
+  resume: { "zh-tw": "/resume", en: "/en/resume" },
+};
+
+const currentPath = pathByPage[page][lang];
+const otherLang = lang === "en" ? "zh-tw" : "en";
+const otherPath = withBase(pathByPage[page][otherLang]);
+
+// navItems/brand-mark 的 href 都要補上 base（GitHub project pages 部署在 /<repo>/ 之下）。
+const navItems: Array<{ key: "home" | "about" | "projects" | "resume"; href: string }> = [
+  { key: "home", href: withBase(pathByPage.home[lang]) },
+  { key: "about", href: withBase(pathByPage.about[lang]) },
+  { key: "projects", href: withBase(pathByPage.projects[lang]) },
+  { key: "resume", href: withBase(pathByPage.resume[lang]) },
+];
+
+const htmlLang = lang === "en" ? "en" : "zh-Hant";
+
+// 絕對網址：canonical / og:url / og:image / twitter:image 一律用 Astro.site 解析，
+// 且路徑一律先經過 withBase() 補上 base 前綴，再交給 new URL() 組成絕對網址。
+const absoluteUrl = (path: string) => new URL(withBase(path), Astro.site).toString();
+const canonicalUrl = absoluteUrl(currentPath);
+const alternateZh = absoluteUrl(pathByPage[page]["zh-tw"]);
+const alternateEn = absoluteUrl(pathByPage[page].en);
+const absoluteOgImage = absoluteUrl(ogImage);
+
+// JSON-LD Person schema：只在首頁輸出一次（zh/en 各自語言版本），避免多頁重複宣告同一實體。
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Lee Ping Hui",
+  alternateName: "李炳輝",
+  jobTitle: lang === "en" ? "Business Analyst / Data Governance Lead" : "商業分析師 / 資料治理負責人",
+  email: `mailto:${copy.contact.email}`,
+  url: absoluteUrl(pathByPage.home[lang]),
+  image: absoluteUrl("/portrait.png"),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Taipei",
+    addressCountry: "TW",
+  },
+  sameAs: ["https://github.com/BlekZz", copy.contact.linkedin],
+};
+const pageSchemaJson = page === "home" ? personSchema : { "@context": "https://schema.org", "@type": "WebPage", name: resolvedTitle, url: canonicalUrl };
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- theme-color 依雙主題給值：manifest.json 只能設單一值（給 add-to-homescreen 用），
+         瀏覽器 UI（網址列/狀態列）著色則靠這兩個 media query meta 各自套用 -->
+    <meta name="theme-color" content="#f3efe7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17181b" media="(prefers-color-scheme: dark)" />
+    <title>{resolvedTitle}</title>
+    <meta name="description" content={resolvedDescription} />
+
+    <!-- hreflang：互指 zh-tw / en 對應頁 + x-default -->
+    <link rel="alternate" hreflang="zh-Hant" href={alternateZh} />
+    <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="x-default" href={alternateZh} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- SEO / OG / Twitter card：絕對網址，og-preview.png 為舊站產物暫用
+         TODO（內容定稿後）：重製 og-preview.png 以反映新站內容與版面 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={copy.brand.name} />
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:description" content={resolvedDescription} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "zh_TW"} />
+    <meta property="og:locale:alternate" content={lang === "en" ? "zh_TW" : "en_US"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={resolvedTitle} />
+    <meta name="twitter:description" content={resolvedDescription} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase("/favicon.svg")} />
+    <link rel="manifest" href={withBase("/site.webmanifest")} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchemaJson)} />
+
+    <!-- 主題預塗：head 內先套用 data-theme，避免深淺主題切換閃爍 -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") {
+            document.documentElement.setAttribute("data-theme", stored);
+          }
+        } catch (e) {
+          /* localStorage 不可用時忽略，交由 prefers-color-scheme 決定 */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="brand-mark" href={withBase(pathByPage.home[lang])}>
+            <span class="brand-mark-monogram">{copy.brand.monogram}</span>
+            <span class="brand-mark-copy">
+              <strong>{copy.brand.name}</strong>
+              <small>{copy.brand.tagline}</small>
+            </span>
+          </a>
+
+          <nav class="site-nav" aria-label="Primary">
+            {navItems.map((item) => (
+              <a href={item.href} aria-current={item.key === page ? "page" : undefined}>
+                {copy.nav[item.key]}
+              </a>
+            ))}
+          </nav>
+
+          <div class="site-header-controls">
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label={copy.themeToggle.label} title={copy.themeToggle.label}>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path>
+              </svg>
+            </button>
+            <a class="lang-toggle" href={otherPath} id="lang-toggle" data-other-lang={otherLang}>
+              {copy.langToggle.label}
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-brand">
+            <div class="site-footer-heading">{copy.brand.name}</div>
+            <p class="text-muted">{copy.footer.rights}</p>
+          </div>
+          <div>
+            <span class="site-footer-heading">{copy.footer.linksHeading}</span>
+            <div class="site-footer-links">
+              {navItems.map((item) => (
+                <a href={item.href}>{copy.nav[item.key]}</a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <span class="site-footer-heading">{copy.footer.contactHeading}</span>
+            <div class="site-footer-links">
+              <a href={`mailto:${copy.contact.email}`}>{copy.contact.email}</a>
+              <a href={copy.contact.github} target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 主題切換：localStorage 記憶，data-theme 優先權高於 prefers-color-scheme -->
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var toggle = document.getElementById("theme-toggle");
+        if (!toggle) return;
+
+        function currentTheme() {
+          var attr = root.getAttribute("data-theme");
+          if (attr === "light" || attr === "dark") return attr;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+
+        toggle.addEventListener("click", function () {
+          var next = currentTheme() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {
+            /* ignore */
+          }
+        });
+      })();
+    </script>
+
+    <!-- 語言切換：記憶最後選擇的語言，供首頁根路徑導向使用 -->
+    <script is:inline define:vars={{ otherLang }}>
+      (function () {
+        var toggle = document.getElementById("lang-toggle");
+        if (!toggle) return;
+        toggle.addEventListener("click", function () {
+          try {
+            localStorage.setItem("lang", otherLang);
+          } catch (e) {
+            /* ignore */
+          }
+        });
+      })();
+    </script>
+
+    <!-- Scroll reveal：IntersectionObserver，prefers-reduced-motion 時停用 -->
+    <script is:inline>
+      (function () {
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var items = document.querySelectorAll(".reveal");
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          items.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+        items.forEach(function (el) {
+          observer.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>

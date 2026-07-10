@@ -1,0 +1,158 @@
+{
+  "zhTW": {
+    "workCases": [
+      {
+        "id": "PROJ-REPORT-GOV",
+        "title": "ERP / Metabase 報表治理",
+        "situation": "DigitSpark 集團原本沒有專責的 Data Team，ERP 與 Metabase 上的報表邏輯、SQL、schema 定義與跨 BU 口徑分散在不同人手上；一旦上游的 root model 被異動，很容易在沒人注意的情況下讓大量下游報表悄悄跑錯。",
+        "approach": "透過逐一訪談各 BU 確認商業定義，建立 Metabase API 對 Git 的單向鏡像與 targeted / incremental / full 三種重建流程，畫出 338 個節點、279 條邊的依賴關係圖，並設計 Gate 0–5 的品質檢核與分層知識庫，把治理規則落實成可重複執行的 SOP。",
+        "result": "380 項 BI 資產完成納入治理，修復包括 599 筆 UTF-8 編碼錯誤全數清零等實際問題，平台持續營運並逐步銜接到後續的集團資料平台建置。",
+        "tags": ["ERP", "Metabase", "資料治理"]
+      },
+      {
+        "id": "PROJ-CONTRACT-FIX",
+        "title": "合約 BU 歸屬修正",
+        "situation": "合約業績原本依照資料輸入者或現任負責業務所屬的 BU 來認列，一旦業務轉調或代填資料，就會讓財務與業績報表的歸屬跟實際狀況脫節，影響跨部門績效判斷。",
+        "approach": "重新釐清正確的認列路徑，改用合約簽訂當時綁定的 user_identity 快照（contracts.user_identity_id → user_identities.business_unit_id）取代現任業務所屬 BU，並推動所有下游報表與相關卡片同步修正。",
+        "result": "修正 3,148 筆合約（占總量 24.6%）的 BU 歸屬，覆蓋九位數台幣規模的報表口徑，並以總額 delta = 0 驗證修正過程沒有造成任何金額誤差。",
+        "tags": ["資料品質", "財務邏輯"]
+      },
+      {
+        "id": "PROJ-DATA-PLATFORM",
+        "title": "集團資料平台",
+        "situation": "集團的 Metabase 報表原本直接連到營運用的 MySQL，商業邏輯散落在各個查詢裡、缺乏完整測試與 Git 版本控制，集團與各 BU 都需要一個可治理、可部署、可觀測的資料服務層與 Dashboard Portal。",
+        "approach": "設計並交付 MySQL → DuckDB/dbt → PostgreSQL → React SPA 的分層 pipeline，從 132 張來源表篩出 14 張白名單表、建立增量同步機制與 schema 分層，並用 Docker Compose、GitLab CI/CD、cron 排程、Slack 通知與備份機制串成完整維運鏈。",
+        "result": "約 13 天完成第一版 production 上線，交付 44 個 dbt models 與 224 項通過的測試，目前有 3–4 個 Dashboard Portal 支援業務週會、現金流、毛利結構與產品分析。",
+        "tags": ["dbt", "資料平台", "CI/CD"]
+      },
+      {
+        "id": "PROJ-DASHBOARD-FACTORY",
+        "title": "分析師培訓 Dashboard Factory",
+        "situation": "廣告代理商的數據部門需要系統化培訓實習生與初階分析師的分析思維，重點不只是工具操作，而是建立正確的認知層級——分辨事實、推論與假設，並具備跨報表驗證的能力。",
+        "approach": "獨立設計並建置單一 HTML 檔案的 Analytics Training Dashboard factory，採單一資料來源與 aggregation 自動驗算，導入 F/I/A（事實／推論／假設）標註框架與 L1–L3 難度分級，並訂出 44 項硬性檢查與 18 項設計 QA 標準，由本人決定產業主題與最終驗收。",
+        "result": "26 天內完成並交付 7 個產業教材，共 96 張互動圖表、131 道練習題與 77 個教學陷阱，供 3–4 位學員進行雙週討論，逐步養成跨報表驗證與 Fact/Inference/Assumption 表達的習慣。",
+        "tags": ["培訓", "資料視覺化", "F/I/A"]
+      }
+    ],
+    "sideProjects": [
+      {
+        "id": "SIDE-GIT-TIME-MACHINE",
+        "name": "git-time-machine",
+        "description": "8 章節互動式 Git 教學 Web App，專為零基礎學習者設計，是 DigitSpark 實習生正式培訓工具，並已被外部開發者 fork。",
+        "tags": ["React", "Vite", "教學工具"],
+        "github": "https://github.com/BlekZz/Trainer_Git_Tutorial",
+        "demo": "https://blekzz.github.io/Trainer_Git_Tutorial/"
+      },
+      {
+        "id": "SIDE-PERSONALIZE-PC",
+        "name": "Personalize-PC-Setup",
+        "description": "PowerShell（98.5%）與 VBScript 打造的 Windows 開發環境自動化工具，修復 CJK 多語系字型顯示問題並提供級聯式右鍵開發工具選單，含雙語（EN/zh-TW）說明文件。",
+        "tags": ["PowerShell", "自動化", "CJK"],
+        "github": "https://github.com/BlekZz/Private_PC_Setup",
+        "demo": ""
+      },
+      {
+        "id": "SIDE-PIPELINE-VISUALIZER",
+        "name": "Pipeline Schedule Visualizer",
+        "description": "local-first、read-only 的跨專案 pipeline 排程視覺化 dashboard：單一 JSON 定義 project／pipeline／schedule 層級，Timeline 與 Calendar 雙視圖共用同一組篩選狀態，支援 simple／RRULE／cron 三種週期規則，無後端、無資料庫。",
+        "tags": ["TypeScript", "React", "排程視覺化"],
+        "github": "https://github.com/BlekZz/Toolkit_Pipeline_Visualizer",
+        "demo": ""
+      },
+      {
+        "id": "SIDE-DATA-JUDGMENT-TRAINER",
+        "name": "Data Judgment Training Platform",
+        "description": "以 Google Sheets + Apps Script 為核心的資料判斷力訓練平台，採「可複製 User UI + 單一 Central Backend + Central DB」架構，Prompt 存於資料庫可即時調整與版本追溯，並採用者自備 Gemini API Key（BYOK）的成本模型。",
+        "tags": ["Google Apps Script", "Clasp", "訓練平台"],
+        "github": "https://github.com/BlekZz/Trainer_Clasp_Data_Cleaning",
+        "demo": ""
+      },
+      {
+        "id": "SIDE-DASHBOARD-DEMO",
+        "name": "Dashboard Factory 教材樣本",
+        "description": "分析師培訓 Dashboard Factory 的教材樣本，可直接互動試玩的分析訓練 dashboard（合成資料，非真實客戶資料）。",
+        "tags": ["資料視覺化", "教材", "互動 Demo"],
+        "github": "https://github.com/BlekZz/Trainer_Analytics_Dashboards",
+        "demo": "/demos/analytics-training-demo.html"
+      }
+    ]
+  },
+  "en": {
+    "workCases": [
+      {
+        "id": "PROJ-REPORT-GOV",
+        "title": "ERP / Metabase Reporting Governance",
+        "situation": "DigitSpark had no dedicated data team, so ERP and Metabase reporting logic, SQL, schema definitions, and cross-BU conventions were scattered across individuals — any change to an upstream root model could silently break large numbers of downstream reports.",
+        "approach": "Interviewed each business unit to confirm shared business definitions, built a one-way Metabase-API-to-Git mirror with targeted, incremental, and full rebuild modes, mapped a 338-node / 279-edge dependency graph, and designed a Gate 0-5 quality checklist and layered knowledge base to turn governance rules into repeatable SOPs.",
+        "result": "Brought 380 BI assets under governance, fixed concrete issues including eliminating 599 UTF-8 encoding errors, and kept the platform running while it fed into the subsequent group data platform build.",
+        "tags": ["ERP", "Metabase", "Data Governance"]
+      },
+      {
+        "id": "PROJ-CONTRACT-FIX",
+        "title": "Contract BU Attribution Fix",
+        "situation": "Contract performance was originally attributed to whichever BU the data-entry person or the current sales owner belonged to, so a personnel transfer or proxy entry could silently detach reported ownership from reality and distort cross-BU performance comparisons.",
+        "approach": "Re-derived the correct attribution path using the user-identity snapshot bound to the contract at signing time (contracts.user_identity_id -> user_identities.business_unit_id) instead of the current sales owner's BU, then pushed the fix through every downstream report and card.",
+        "result": "Corrected BU attribution on 3,148 contracts (24.6% of the total), covering a nine-figure TWD reporting scope, and verified the fix with a zero-delta total confirming no financial figures shifted in the process.",
+        "tags": ["Data Quality", "Financial Logic"]
+      },
+      {
+        "id": "PROJ-DATA-PLATFORM",
+        "title": "Group Data Platform",
+        "situation": "Group Metabase reports connected directly to the operational MySQL database, with business logic scattered across individual queries and no real test coverage or Git version control — the group and its BUs needed a governable, deployable, observable data-service layer and dashboard portal.",
+        "approach": "Designed and delivered a layered MySQL -> DuckDB/dbt -> PostgreSQL -> React SPA pipeline, narrowing 132 audited source tables down to a 14-table whitelist, building incremental sync and schema layering, and wiring it together with Docker Compose, GitLab CI/CD, cron scheduling, Slack alerts, and backups.",
+        "result": "Shipped the first production version in about 13 days, delivering 44 dbt models and 224 passing tests; the platform now runs 3-4 dashboard portals supporting weekly sales reviews, cash flow, margin structure, and product analysis.",
+        "tags": ["dbt", "Data Platform", "CI/CD"]
+      },
+      {
+        "id": "PROJ-DASHBOARD-FACTORY",
+        "title": "Analyst Training Dashboard Factory",
+        "situation": "The agency's data team needed to systematically train interns and junior analysts in analytical thinking — not just tool usage, but the right cognitive habits: distinguishing facts from inferences and assumptions, and validating findings across reports.",
+        "approach": "Independently designed and built a single-file HTML analytics-training-dashboard factory using one data source with automated aggregation checks, an F/I/A (Fact/Inference/Assumption) annotation framework, L1-L3 difficulty tiers, 44 hard checks, and 18 design-QA rules, personally deciding the industry themes and final sign-off.",
+        "result": "Delivered 7 industry-specific training modules in 26 days, totaling 96 interactive charts, 131 exercises, and 77 structured training traps, used by 3-4 learners in biweekly sessions to build habits around cross-report validation and Fact/Inference/Assumption reasoning.",
+        "tags": ["Training", "Data Viz", "F/I/A"]
+      }
+    ],
+    "sideProjects": [
+      {
+        "id": "SIDE-GIT-TIME-MACHINE",
+        "name": "git-time-machine",
+        "description": "An 8-chapter interactive Git tutorial web app designed for complete beginners; used as the official DigitSpark intern training tool and already forked by an external developer.",
+        "tags": ["React", "Vite", "Teaching Tool"],
+        "github": "https://github.com/BlekZz/Trainer_Git_Tutorial",
+        "demo": "https://blekzz.github.io/Trainer_Git_Tutorial/"
+      },
+      {
+        "id": "SIDE-PERSONALIZE-PC",
+        "name": "Personalize-PC-Setup",
+        "description": "A Windows developer-environment automation tool in PowerShell (98.5%) and VBScript that fixes CJK multi-script font rendering and adds a cascading right-click developer-tools menu, with bilingual (EN/zh-TW) documentation.",
+        "tags": ["PowerShell", "Automation", "CJK"],
+        "github": "https://github.com/BlekZz/Private_PC_Setup",
+        "demo": ""
+      },
+      {
+        "id": "SIDE-PIPELINE-VISUALIZER",
+        "name": "Pipeline Schedule Visualizer",
+        "description": "A local-first, read-only dashboard for visualizing pipeline schedules across projects: a single JSON document drives a project / pipeline / schedule hierarchy, Timeline and Calendar views share the same filter state, and simple / RRULE / cron recurrence rules are all supported — no backend, no database.",
+        "tags": ["TypeScript", "React", "Schedule Visualization"],
+        "github": "https://github.com/BlekZz/Toolkit_Pipeline_Visualizer",
+        "demo": ""
+      },
+      {
+        "id": "SIDE-DATA-JUDGMENT-TRAINER",
+        "name": "Data Judgment Training Platform",
+        "description": "A Google Sheets + Apps Script training platform for data-judgment and data-cleaning skills, built on a replicable-user-UI + single-central-backend + central-database architecture, with database-stored, version-tracked prompts and a BYOK (bring-your-own-key) Gemini cost model.",
+        "tags": ["Google Apps Script", "Clasp", "Training Platform"],
+        "github": "https://github.com/BlekZz/Trainer_Clasp_Data_Cleaning",
+        "demo": ""
+      },
+      {
+        "id": "SIDE-DASHBOARD-DEMO",
+        "name": "Dashboard Factory Training Sample",
+        "description": "A hands-on sample from the Analyst Training Dashboard Factory series — an interactive analytics-training dashboard built entirely on synthetic data (no real client data).",
+        "tags": ["Data Viz", "Training", "Interactive Demo"],
+        "github": "https://github.com/BlekZz/Trainer_Analytics_Dashboards",
+        "demo": "/demos/analytics-training-demo.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "zhTW": {
+    "categories": [
+      {
+        "heading": "資料治理與工程",
+        "items": ["SQL", "MySQL", "PostgreSQL", "dbt Core", "DuckDB", "Metabase（REST API / MBQL）", "Git / GitLab CI/CD", "Docker Compose", "ETL Pipeline Architecture", "Data Quality Monitoring", "Business Attribution Logic", "Data Modeling and Validation"]
+      },
+      {
+        "heading": "經營分析與報表",
+        "items": ["Power BI", "SQL Reporting Governance", "Dashboard KPI Design", "Receivables and P&L Analysis", "Retail and Product Classification Analysis", "Market Research Synthesis", "零售", "需求預測"]
+      },
+      {
+        "heading": "市場與內容洞察",
+        "items": ["Social Listening and Content Insight", "Ecommerce Funnel Optimization", "Cross-functional Analytical Storytelling", "Python", "SPSS", "EViews", "Google Analytics"]
+      },
+      {
+        "heading": "培訓、工具與自動化",
+        "items": ["Knowledge System and Training Design", "Environment and Tooling Standardization", "PowerShell", "HTML / CSS / JavaScript", "Chart.js", "React", "Notion", "Google Sheets API"]
+      }
+    ]
+  },
+  "en": {
+    "categories": [
+      {
+        "heading": "Data Governance & Engineering",
+        "items": ["SQL", "MySQL", "PostgreSQL", "dbt Core", "DuckDB", "Metabase (REST API / MBQL)", "Git / GitLab CI/CD", "Docker Compose", "ETL Pipeline Architecture", "Data Quality Monitoring", "Business Attribution Logic", "Data Modeling and Validation"]
+      },
+      {
+        "heading": "Business Analytics & Reporting",
+        "items": ["Power BI", "SQL Reporting Governance", "Dashboard KPI Design", "Receivables and P&L Analysis", "Retail and Product Classification Analysis", "Market Research Synthesis", "Retail Analytics", "Demand Forecasting"]
+      },
+      {
+        "heading": "Market & Content Insight",
+        "items": ["Social Listening and Content Insight", "Ecommerce Funnel Optimization", "Cross-functional Analytical Storytelling", "Python", "SPSS", "EViews", "Google Analytics"]
+      },
+      {
+        "heading": "Training, Tooling & Automation",
+        "items": ["Knowledge System and Training Design", "Environment and Tooling Standardization", "PowerShell", "HTML / CSS / JavaScript", "Chart.js", "React", "Notion", "Google Sheets API"]
+      }
+    ]
+  }
+}

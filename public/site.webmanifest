@@ -1,0 +1,17 @@
+{
+  "name": "Lee Ping Hui | Data Governance & Business Analytics",
+  "short_name": "Lee Ping Hui",
+  "description": "李炳輝的個人網站：資料治理、經營分析與團隊培訓作品集。 Personal site for Lee Ping Hui — data governance, business analytics, and team training.",
+  "start_url": "/Blake_Resume-Portfolio/",
+  "display": "standalone",
+  "background_color": "#f3efe7",
+  "theme_color": "#9b6a2c",
+  "icons": [
+    {
+      "src": "/Blake_Resume-Portfolio/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

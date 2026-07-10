@@ -1,0 +1,270 @@
+{
+  "zhTW": {
+    "home": [
+      {
+        "id": "EXP-001",
+        "org": "DigitSpark（宥豪數位）",
+        "title": "Business Analyst",
+        "period": "2024-05 ~ 現在",
+        "summary": "規劃數據部門里程碑並建置 ETL、CRM、ERP/BI 儀表板與 Notion 管理系統，推動數據服務產品化，同時顯著降低專員、業務、實習生與管理端的人工作業時間。"
+      },
+      {
+        "id": "EXP-002",
+        "org": "全家便利商店",
+        "title": "Strategy Planner & Analyst",
+        "period": "2023-09 ~ 2024-03",
+        "summary": "整合會員、銷售、商品與發票資料，支援零售商品與活動決策，並規劃外部商品分類模型的 POC、驗證與導入評估。"
+      },
+      {
+        "id": "EXP-003",
+        "org": "NTT Data Taiwan",
+        "title": "Associate Consultant",
+        "period": "2023-03 ~ 2023-05",
+        "summary": "參與企業報表資料流設計與驗證，串接 IMS、P&C、SFTP 與 SharePoint，並負責資料對帳、交接文件與跨部門協作。"
+      },
+      {
+        "id": "EXP-005",
+        "org": "SoWork",
+        "title": "Marketing Data Analyst / Business Analyst",
+        "period": "2021-05 ~ 2023-02",
+        "summary": "負責品牌與公部門的市場、輿情與漏斗分析，主導社群監測專案流程優化與自動化，並延伸到電商轉換、財務 forecast 與內部流程治理。"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "EXP-001",
+        "org": "DigitSpark（宥豪數位）",
+        "title": "Business Analyst",
+        "period": "2024-05 ~ 現在",
+        "summary": "廣告代理商內部需要整合 CRM、ERP、客戶與行銷資料，提升跨部門決策與管理效率，同時建立數據部門基礎能力。"
+      },
+      {
+        "id": "EXP-002",
+        "org": "全家便利商店",
+        "title": "Strategy Planner & Analyst",
+        "period": "2023-09 ~ 2024-03",
+        "summary": "需整合跨資料庫會員、銷售、商品與發票資料，支援商品策略、活動分析與客群決策，並評估外部商品分類模型導入可行性。"
+      },
+      {
+        "id": "EXP-003",
+        "org": "NTT Data Taiwan",
+        "title": "Associate Consultant",
+        "period": "2023-03 ~ 2023-05",
+        "summary": "協助企業端處理跨來源報表資料流、經銷商上傳、驗證與交接需求，需要在 IT、業務、財務與外部經銷商之間協調資料口徑與流程。"
+      },
+      {
+        "id": "EXP-004",
+        "org": "跨國藥廠併購專案（NTT Data 外派）",
+        "title": "Independent Consultant",
+        "period": "2023-02 ~ 2023-07",
+        "summary": "跨國藥廠與本地品牌併購期間，需要整合多地分銷商與總部資料流程。"
+      },
+      {
+        "id": "EXP-005",
+        "org": "SoWork",
+        "title": "Marketing Data Analyst / Business Analyst",
+        "period": "2021-05 ~ 2023-02",
+        "summary": "品牌與公部門客戶需要市場、輿情、受眾、漏斗與行銷成效分析，並將研究結果轉為可執行的商業決策與內部流程優化。"
+      },
+      {
+        "id": "EXP-006",
+        "org": "E21 Creative Co., Ltd.",
+        "title": "Event Planner（兼職）",
+        "period": "2015-10 ~ 2019-10",
+        "summary": "科技與大型活動客戶需要展會、年會與企業活動現場規劃與技術支援。"
+      },
+      {
+        "id": "EXP-007",
+        "org": "草坊代購（Grass Online Purchasing Agency）",
+        "title": "創業者",
+        "period": "2015-09 ~ 2019-04",
+        "summary": "經營馬來西亞與台灣跨境代購/電商，需要兼顧採購、客服、物流與行銷。"
+      },
+      {
+        "id": "EXP-008",
+        "org": "銘傳大學國際學生事務處",
+        "title": "新生輔導員 / 國際學生服務助理",
+        "period": "2014-09 ~ 2017-09",
+        "summary": "協助外籍新生在台就學與生活安頓，需要處理跨語言溝通與行政流程。"
+      },
+      {
+        "id": "EXP-009",
+        "org": "Hito 音樂文化",
+        "title": "活動助理實習生",
+        "period": "2014-09 ~ 2017-09",
+        "summary": "協助外籍新生在台就學與生活安頓，需要處理跨語言溝通與行政流程。"
+      }
+    ],
+    "education": [
+      {
+        "id": "EDU-001",
+        "org": "銘傳大學",
+        "title": "企業管理 / 國際企業 碩士",
+        "period": "2018-09 ~ 2020-07",
+        "summary": "碩士研究聚焦國際新創企業績效與地理多元化策略；整合超過 700 家企業資料，完成自己的碩士論文並協助 4 篇其他研究的數據處理。"
+      },
+      {
+        "id": "EDU-002",
+        "org": "銘傳大學",
+        "title": "大眾傳播 / 媒體研究 學士",
+        "period": "2012-09 ~ 2018-09",
+        "summary": "採取策略性延畢，將學士修業期間拉長以配合代購事業的營運與擴張節奏，同時完成學位。"
+      },
+      {
+        "id": "CERT-001",
+        "org": "語言與分析相關證照",
+        "title": "英語能力與基礎分析課程證明",
+        "period": "2000s ~ 2021",
+        "summary": "持有英語能力國際認證與基礎分析相關課程證明，可作為英文與自學能力的補充佐證。"
+      },
+      {
+        "id": "AWD-001",
+        "org": "IB HR Business Ethics Case Analysis Competition",
+        "title": "團隊成員 / 分析",
+        "period": "2019",
+        "summary": "MBA 期間參與商業倫理與人資個案分析競賽並獲得第 3 名。"
+      },
+      {
+        "id": "AWD-002",
+        "org": "Hult Prize",
+        "title": "參賽者",
+        "period": "2019",
+        "summary": "曾參與 Hult Prize 類型競賽，作為創業與提案經驗補充。"
+      }
+    ]
+  },
+  "en": {
+    "home": [
+      {
+        "id": "EXP-001",
+        "org": "DigitSpark",
+        "title": "Business Analyst",
+        "period": "May 2024 - Present",
+        "summary": "Planned data-team milestones and built ETL pipelines, CRM, ERP/BI dashboards, and Notion-based management systems, productizing internal data services while materially reducing manual work for specialists, sales, interns, and managers."
+      },
+      {
+        "id": "EXP-002",
+        "org": "FamilyMart Taiwan",
+        "title": "Strategy Planner & Analyst",
+        "period": "Sep 2023 - Mar 2024",
+        "summary": "Integrated member, sales, product, and invoice data to support retail product and campaign decisions, while planning POC, validation, and rollout evaluation for an external product-classification model."
+      },
+      {
+        "id": "EXP-003",
+        "org": "NTT Data Taiwan",
+        "title": "Associate Consultant",
+        "period": "Mar 2023 - May 2023",
+        "summary": "Contributed to enterprise reporting-flow design and validation by connecting IMS, P&C, SFTP, and SharePoint data sources while handling reconciliations, handover documentation, and cross-functional coordination."
+      },
+      {
+        "id": "EXP-005",
+        "org": "SoWork",
+        "title": "Marketing Data Analyst / Business Analyst",
+        "period": "May 2021 - Feb 2023",
+        "summary": "Led market, social listening, and funnel analytics for commercial and public-sector clients, extending work from workflow automation into e-commerce conversion analysis, financial forecasting, and internal process governance."
+      }
+    ],
+    "timeline": [
+      {
+        "id": "EXP-001",
+        "org": "DigitSpark",
+        "title": "Business Analyst",
+        "period": "May 2024 - Present",
+        "summary": "The agency needed to unify CRM, ERP, customer, and marketing data to improve cross-department decisions and build foundational data-team capability."
+      },
+      {
+        "id": "EXP-002",
+        "org": "FamilyMart Taiwan",
+        "title": "Strategy Planner & Analyst",
+        "period": "Sep 2023 - Mar 2024",
+        "summary": "Needed to integrate membership, sales, product, and invoice data across systems to support merchandising strategy, campaign analysis, and customer-segment decisions, and to evaluate the feasibility of an external product-classification model."
+      },
+      {
+        "id": "EXP-003",
+        "org": "NTT Data Taiwan",
+        "title": "Associate Consultant",
+        "period": "Mar 2023 - May 2023",
+        "summary": "Supported the enterprise side with cross-source reporting data flow, distributor uploads, validation, and handover, coordinating data definitions and process across IT, sales, finance, and external distributors."
+      },
+      {
+        "id": "EXP-004",
+        "org": "Cross-border Pharmaceutical M&A Project (NTT Data secondment)",
+        "title": "Independent Consultant",
+        "period": "Feb 2023 - Jul 2023",
+        "summary": "During a cross-border pharmaceutical M&A, needed to integrate data flows across multiple regional distributors and headquarters."
+      },
+      {
+        "id": "EXP-005",
+        "org": "SoWork",
+        "title": "Marketing Data Analyst / Business Analyst",
+        "period": "May 2021 - Feb 2023",
+        "summary": "Brand and public-sector clients needed market, sentiment, audience, funnel, and campaign-performance analysis, translated into actionable business decisions and internal process improvements."
+      },
+      {
+        "id": "EXP-006",
+        "org": "E21 Creative Co., Ltd.",
+        "title": "Event Planner (Part-time)",
+        "period": "Oct 2015 - Oct 2019",
+        "summary": "Technology and large-scale event clients needed on-site planning and technical support for exhibitions, conferences, and corporate events."
+      },
+      {
+        "id": "EXP-007",
+        "org": "Grass Online Purchasing Agency",
+        "title": "Entrepreneur",
+        "period": "Sep 2015 - Apr 2019",
+        "summary": "Operated a cross-border purchasing / e-commerce business between Malaysia and Taiwan, covering sourcing, customer service, logistics, and marketing."
+      },
+      {
+        "id": "EXP-008",
+        "org": "Office of International Student Service, Ming Chuan University",
+        "title": "Guide for Freshman Orientation / International Student Service Assistant",
+        "period": "Sep 2014 - Sep 2017",
+        "summary": "Supported international students with onboarding and residency-related administration in Taiwan, building cross-cultural communication and coordination skills."
+      },
+      {
+        "id": "EXP-009",
+        "org": "Hito Music Culture Company",
+        "title": "Event Assistant Intern",
+        "period": "Sep 2014 - Sep 2017",
+        "summary": "Supported international students with study, residency, and work-related administration in Taiwan, requiring cross-language communication."
+      }
+    ],
+    "education": [
+      {
+        "id": "EDU-001",
+        "org": "Ming Chuan University",
+        "title": "MBA in Business Management / International Business",
+        "period": "Sep 2018 - Jul 2020",
+        "summary": "Master's research on international new-venture performance and geographic diversification strategy; analyzed data across more than 700 firms, completing one thesis and supporting data processing for 4 additional research projects."
+      },
+      {
+        "id": "EDU-002",
+        "org": "Ming Chuan University",
+        "title": "Bachelor's degree, Mass Communication / Media Studies",
+        "period": "Sep 2012 - Sep 2018",
+        "summary": "Took a strategic extended enrollment to align study pace with running a cross-border commerce venture, completing the degree while sustaining that business."
+      },
+      {
+        "id": "CERT-001",
+        "org": "Language & Analytics Certifications",
+        "title": "English Proficiency & Foundational Analytics Coursework",
+        "period": "2000s - 2021",
+        "summary": "Holds internationally certified English proficiency plus foundational analytics coursework credentials, supporting English and self-learning ability."
+      },
+      {
+        "id": "AWD-001",
+        "org": "IB HR Business Ethics Case Analysis Competition",
+        "title": "Team Member / Analyst",
+        "period": "2019",
+        "summary": "Won 3rd place in an MBA-level HR business ethics case analysis competition."
+      },
+      {
+        "id": "AWD-002",
+        "org": "Hult Prize",
+        "title": "Competitor",
+        "period": "2019",
+        "summary": "Participated in the Hult Prize competition, adding evidence of entrepreneurship and pitch experience."
+      }
+    ]
+  }
+}
